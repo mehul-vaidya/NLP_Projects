@@ -29,7 +29,7 @@ def main():
           sentiment_score = clf(input_text)[0].get('score')
           st.success("Sentiment is of type " + str(sentiment) + " with score " + str(sentiment_score)) 
           
-          #sentiment analysis
+          #text classification
           clf = pipeline("zero-shot-classification")
           result = clf(
             input_text,
@@ -44,7 +44,7 @@ def main():
           #text generation
           gen = pipeline("text-generation", model="distilgpt2")
           st.success(gen(input_text)[0].get('generated_text'))
-          
+
           
 if __name__ == '__main__':
     main()
